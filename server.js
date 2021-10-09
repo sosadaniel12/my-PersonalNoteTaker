@@ -3,10 +3,8 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const notes = require("./db/db.json");
+const db = require("./db/db.json");
 const shortid = require("shortid");
-const { error } = require("console");
-const { default: ShortUniqueId } = require("short-unique-id");
 
 //create the middleware to have a response
 //Create a post method to send the info to the database
@@ -32,21 +30,21 @@ app.get("/notes", (req, res) => {
 });
 
 app.get("/api/notes", (req, res) => {
-  return res.json(notes);
+  return res.json(db);
 });
 
 app.post("/api/notes", (req, res) => {
   console.log(req.body);
-  let newNote = {
+  const newNote = {
     id: shortid.generate(),
     title: req.body.title,
     text: req.body.text,
   };
   console.log(newNote);
-  notes.push(newNote);
-  fs.writeFile("./db/db.json", JSON.stringify(notes), (err) => {
+  db.push(newNote);
+  fs.writeFile("./db/db.json", JSON.stringify(db), (err) => {
     if (err) throw err;
-    return res.json(notes);
+    return res.json(db);
   });
 });
 
