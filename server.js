@@ -2,6 +2,7 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const notes = require("./db/db.json");
 
 //create the middleware to have a response
 //Create a post method to send the info to the database
@@ -23,13 +24,11 @@ app.get("/", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/index.html"))
 );
 
-app.get("/notes", (req, res) => {
+app.get("/api/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
-app.post("/notes", (req ,res) => {
-  
-})
+app.post("/api/notes", (req, res) => {});
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
 );
