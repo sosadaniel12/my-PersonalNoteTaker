@@ -21,6 +21,16 @@ const apiRoute = (app) => {
       return res.json(db);
     });
   });
+
+  //Deletes notes api
+  app.delete("/api/notes/:id", (req, res) => {
+    let id = req.params.id;
+    db.splice(id - 1, 1);
+    db.forEach((obj, i) => {
+      obj.id = i + 1;
+    });
+    fs.writeFile("../db/db.json", JSON.stringify(db), () => res.json(db));
+  });
 };
 
 module.exports = apiRoute;
