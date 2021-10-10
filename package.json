@@ -1,10 +1,11 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "",
+  "description": "Using the note taker will help the user be able to take notes easily, and be able to navigate through all their noters by saving and deleting.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,14 @@
     "id": "0.0.0",
     "short-unique-id": "^4.4.4",
     "shortid": "^2.2.16"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sosadaniel12/my-PersonalNoteTaker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sosadaniel12/my-PersonalNoteTaker/issues"
+  },
+  "homepage": "https://github.com/sosadaniel12/my-PersonalNoteTaker#readme"
 }
