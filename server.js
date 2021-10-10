@@ -1,8 +1,6 @@
 //get all the nodes files I need
 //dependecies
 const express = require("express");
-const apiRoute = require("./routes/apiRoute");
-const htmlRoute = require("./routes/html");
 
 //create the middleware to have a response
 //Create a post method to send the info to the database
@@ -19,8 +17,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-app.use(htmlRoute);
-app.use(apiRoute);
+require("./routes/html")(app);
+require("./routes/apiRoute")(app);
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)

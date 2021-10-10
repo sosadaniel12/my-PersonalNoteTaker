@@ -1,7 +1,6 @@
 const fs = require("fs");
-const db = require("./db/db.json");
+const db = require("../db/db.json");
 const shortid = require("shortid");
-const htmlRoute = require("./html");
 
 const apiRoute = (app) => {
   app.get("/api/notes", (req, res) => {
@@ -24,4 +23,4 @@ const apiRoute = (app) => {
   });
 };
 
-module.exports = htmlRoute;
+module.exports = apiRoute;
